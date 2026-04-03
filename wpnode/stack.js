@@ -36,14 +36,17 @@ class StackArray {
     }
   
     getMax() {
+      console.time("getMax settime");
       let elementMax = this.items[0]; 
       for (let i = 0; i < this.size(); i++) {
          if (this.items[i] > elementMax){
           elementMax == this.items[i];
          }
       }
+      console.timeEnd("getMax settime");
       return elementMax;
     }
+    
   
     
     getMin() {

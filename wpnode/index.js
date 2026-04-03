@@ -45,34 +45,34 @@ app.get('/', function(req, res){
   
   });
 
-  app.post('/result', function(req, res){
-    //var unit = JSON.stringify(req.body.unit);
-    var mstack = new StackArray();
-    console.log(req.body.urlstr);
-    var site = req.body.urlstr;
-    apiurl = site+"wp-json/wp/v2/posts?per_page=10&context=embed";
-    request(apiurl, { json: true }, (rerr, rres, body) => {
-      if (rerr) { return console.log(rerr); }
-      console.log(body[1].title); 
-      console.log(body[1].link);
-      console.log(body[1].id);
+  // app.post('/result', function(req, res){
+  //   //var unit = JSON.stringify(req.body.unit);
+  //   var mstack = new StackArray();
+  //   console.log(req.body.urlstr);
+  //   var site = req.body.urlstr;
+  //   apiurl = site+"wp-json/wp/v2/posts?per_page=10&context=embed";
+  //   request(apiurl, { json: true }, (rerr, rres, body) => {
+  //     if (rerr) { return console.log(rerr); }
+  //     console.log(body[1].title); 
+  //     console.log(body[1].link);
+  //     console.log(body[1].id);
       
-      var obj;
+  //     var obj;
   
-      for(var i=0; i < body.length; i++){
-        mstack.push(body[i].title.rendered.length)
-      }
+  //     for(var i=0; i < body.length; i++){
+  //       mstack.push(body[i].title.rendered.length)
+  //     }
       
-      res.render("index", {
-        data: body,
-        maxdata: mstack.getMax(),
-        mindata: mstack.getMin(),
-        dstack: dtrue
-      });
+  //     res.render("index", {
+  //       data: body,
+  //       maxdata: mstack.getMax(),
+  //       mindata: mstack.getMin(),
+  //       dstack: dtrue
+  //     });
   
-    });
+  //   });
   
-  });
+  // });
   
 
 
